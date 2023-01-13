@@ -1,5 +1,5 @@
 // Implements a dictionary's functionality
-
+#define _CRT_SECURE_NO_WARNINGS
 //Usage: ./speller [DICTIONARY] text
 
 #include <ctype.h>

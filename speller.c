@@ -1,9 +1,9 @@
 // Implements a spell-checker
-
+#define _CRT_SECURE_NO_WARNINGS
 #include <ctype.h>
 #include <stdio.h>
 // #include <sys/resource.h>
-#include <sys/time.h>
+#include <time.h>
 
 #include "dictionary.h"
 
