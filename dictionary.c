@@ -1,6 +1,7 @@
 // Implements a dictionary's functionality
 #define _CRT_SECURE_NO_WARNINGS
 //Usage: ./speller [DICTIONARY] text
+//For testing ./speller texts/holmes_cut.txt
 
 #include <ctype.h>
 #include <stdbool.h>
@@ -22,7 +23,7 @@ node;  //sizeof(node) = 56 bytes
 const int N = 71549;
 
 // Hash table
-node *table[N];
+node *table[71549];
 
 // Length of the dictionary
 int dict_length = 0;
@@ -76,39 +77,7 @@ bool check(const char *word)
 // Hashes word to a number
 unsigned int hash(const char *word)
 {
-    /*x int cur_value = 0, value = 0;
-
-        for (int i = 0; i < strlen(word); i++)
-        {
-            if (word[i] == 39)
-            {
-                cur_value = 26;
-                value = value + 26;
-            }
-            else
-            {
-                cur_value = word[i] - 97;
-            }
-            //used Data Structures youtube course of Dr. Rob Edwards for this line
-            //value = (50 * value + cur_value) % N;
-            value = (value << 2) ^ cur_value;
-            // printf("letter %c equals to %i\n", word[i], cur_value);
-        }
-
-        return value % N;*/
-    //THE ONE form GPT that gives 0.073
-    // int hash = 0;
-
-    // for (int i = 0; word[i] != '\0'; i++)
-    // {
-    //     //ChatGPT advised me this one
-    //     hash = (hash * prime) + word[i];
-
-
-    // }
-    // return (hash % N);
-
-    //yet another function from GPT (djb2 by Dan Bernstein)
+    //djb2 by Dan Bernstein
     unsigned long hash = 5381;
     int c = 0;
 
@@ -167,10 +136,6 @@ bool load(const char *dictionary)
 
     // Create a temporary var for storing a word and allocate memory
     char word[LENGTH + 1]; //stores every word
-
-
-    // unsigned long tophash = 0;       //maximum hash and according word for tesing
-    // char topword[LENGTH + 1];
 
     // For each string till the end of the file
     while (fgets(word, LENGTH + 1, dict))
