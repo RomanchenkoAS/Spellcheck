@@ -4,8 +4,10 @@
 #include <stdio.h>
 // #include <sys/resource.h>
 #include <time.h>
+#include <stdbool.h>
 
 #include "dictionary.h"
+#include "dictionary.c"
 
 // Undefine any definitions
 // #undef calculate

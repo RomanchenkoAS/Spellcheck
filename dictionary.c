@@ -19,7 +19,7 @@ typedef struct node
 node;  //sizeof(node) = 56 bytes
 
 // Pick a number of buckets in hash table
-const unsigned int N = 71549;
+const int N = 71549;
 
 // Hash table
 node *table[N];
@@ -63,7 +63,8 @@ bool check(const char *word)
     memset(tmp, '\0', sizeof(tmp));
 
     //lowercase the word first
-    for (int i = 0; i < strlen(word); i++)
+    int len = strlen(word);
+    for (int i = 0; i < len; i++)
     {
         tmp[i] = tolower(word[i]);
     }
