@@ -1,3 +1,5 @@
+//this will be a branch working on ubuntu for resource control
+
 // Implements a spell-checker
 #define _CRT_SECURE_NO_WARNINGS
 #include <ctype.h>
